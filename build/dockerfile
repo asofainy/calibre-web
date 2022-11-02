@@ -15,8 +15,8 @@ RUN apt-get install -y apt-utils unzip p7zip busybox python3-pip imagemagick \
     && cd /tmp \
     && wget https://github.com/janeczku/calibre-web/releases/download/$CALIBRE_WEB_VERSION/calibre-web-$CALIBRE_WEB_VERSION.tar.gz \
     && tar -xzf /tmp/calibre-web-$CALIBRE_WEB_VERSION.tar.gz \
-    && cp -rfv calibre-web-$CALIBRE_WEB_VERSION /opt/calibre-web \
-    && git clone https://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@github.com/asofainy/calibre-web /tmp/calibre-web \
+    && cp -rf calibre-web-$CALIBRE_WEB_VERSION /opt/calibre-web \
+    && git clone --branch dev https://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@github.com/asofainy/calibre-web /tmp/calibre-web \
     && pip3 install -r /tmp/calibre-web/config/requirements.txt \
     && sed -i "s/lm.session_protection = 'strong'/lm.session_protection = 'none'/g" /opt/calibre-web/cps/__init__.py \
     && rm -rf /tmp/calibre-web
