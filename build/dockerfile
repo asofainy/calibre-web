@@ -5,7 +5,7 @@ ENV CALIBRE_WEB_VERSION=0.6.12
 
 # CALIBRE
 
-RUN apt-get update && apt-get install -y wget python3 libegl1 libopengl0 xdg-utils libnss3 xz-utils \
+RUN apt-get update && apt-get install -y wget python3 libegl1 libopengl0 xdg-utils libnss3 xz-utils git \
     && cd /tmp \
     && wget -nv -O- https://download.calibre-ebook.com/linux-installer.sh | bash /dev/stdin version=$CALIBRE_VERSION install_dir=/opt
 
