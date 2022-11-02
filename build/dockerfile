@@ -5,13 +5,13 @@ ENV CALIBRE_WEB_VERSION=0.6.12
 
 # CALIBRE
 
-RUN apt-get update && apt-get install -y wget python3 libegl1 libopengl0 xdg-utils libnss3 xz-utils git \
+RUN apt-get update && apt-get install -y wget python3 libegl1 libopengl0 xdg-utils libnss3 xz-utils \
     && cd /tmp \
     && wget -nv -O- https://download.calibre-ebook.com/linux-installer.sh | bash /dev/stdin version=$CALIBRE_VERSION install_dir=/opt
 
 # CALIBRE WEB
 
-RUN apt-get install -y apt-utils unzip p7zip busybox python3-pip imagemagick \
+RUN apt-get install -y apt-utils git unzip p7zip busybox python3-pip imagemagick \
     && cd /tmp \
     && wget https://github.com/janeczku/calibre-web/releases/download/$CALIBRE_WEB_VERSION/calibre-web-$CALIBRE_WEB_VERSION.tar.gz \
     && tar -xzf /tmp/calibre-web-$CALIBRE_WEB_VERSION.tar.gz \
